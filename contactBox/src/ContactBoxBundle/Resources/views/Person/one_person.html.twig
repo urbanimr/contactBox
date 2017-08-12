@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactBoxBundle:Person:onePerson{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Person:onePerson page</h1>
+
+        {{ person.getId }}
+        {{ person.getName }}
+        {{ person.getSurname }}
+        {{ person.getDescription }}
+
+
+<a href="{{ path('allPersons') }}">Powrót</a>
+<a href="{{ path('modify' , {id:person.getId}) }}">modyfikuj</a>
+
+{% endblock %}

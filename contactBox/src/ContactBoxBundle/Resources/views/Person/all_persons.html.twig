@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactBoxBundle:Person:onePerson{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Person:allPersons page</h1>
+    <div>
+    <a href={{ path("new") }}><button>Dodaj</button></a>
+    </div>
+    {% for val in persons |sort  %}
+
+        <a href="{{ path('onePerson', {id : val.id}) }}"> {{ val.getName }}</a>
+        {{ val.getSurname }}
+
+
+        <a href={{ path("modify", {id:val.id}) }}><button>modyfikuj</button></a>
+        <a href={{ path("delete", {id:val.id}) }}><button>usuń</button></a>
+        <br>
+    {% endfor %}
+
+{% endblock %}

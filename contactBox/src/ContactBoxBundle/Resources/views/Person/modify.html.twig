@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ContactBoxBundle:Person:modify{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Person:modify page</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}
