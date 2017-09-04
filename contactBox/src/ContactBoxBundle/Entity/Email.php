@@ -2,6 +2,7 @@
 
 namespace ContactBoxBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -13,11 +14,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Email
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Person")
-     * @ORM\JoinColumn(name="person_id", referencedColumnName="id")
+     * One Email has many Persons
+     * @ORM\OneToMany(targetEntity="Person", mappedBy="email")
      */
 
-    private $person;
+    private $persons;
 
 
     /**
@@ -42,6 +43,11 @@ class Email
      * @ORM\Column(name="type", type="string", length=25)
      */
     private $type;
+
+    public function __construct()
+    {
+        $this->persons = new ArrayCollection();
+    }
 
 
     /**

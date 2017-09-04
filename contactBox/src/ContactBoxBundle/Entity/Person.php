@@ -14,11 +14,30 @@ class Person
 {
 
     /**
-     * @ORM\OneToMany(targetEntity="Address", mappedBy="person")
+     * Many Persons has One Address
+     * @ORM\ManyToOne(targetEntity="Address", inversedBy="persons")
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="id")
      */
 
-    private 
+    private $address;
 
+
+    /**
+     * Many Persons has One Phone
+     * @ORM\ManyToOne(targetEntity="Phone", inversedBy="persons")
+     * @ORM\JoinColumn(name="phone_id", referencedColumnName="id")
+     */
+
+    private $phone;
+
+
+    /**
+     * Many Persons has One Email
+     * @ORM\ManyToOne(targetEntity="Email" , inversedBy="persons")
+     * @ORM\JoinColumn(name="email_id", referencedColumnName="id")
+     */
+
+    private $email;
 
 
     /**

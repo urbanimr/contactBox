@@ -60,7 +60,6 @@ class PersonController extends Controller
     }
 
 
-
     /**
      * @Route("/{id}/modify" , name="modify")
      */

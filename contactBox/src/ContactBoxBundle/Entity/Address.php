@@ -2,7 +2,9 @@
 
 namespace ContactBoxBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * Address
@@ -14,11 +16,11 @@ class Address
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="Person")
-     * @ORM\JoinColumn(name="person_id", referencedColumnName="id")
+     * One Address has many Persons
+     * @ORM\OneToMany(targetEntity="Person", mappedBy="address")
      */
 
-    private $person;
+    private $persons;
 
     /**
      * @var int
@@ -56,6 +58,14 @@ class Address
      * @ORM\Column(name="apartmentNumber", type="integer")
      */
     private $apartmentNumber;
+
+
+
+
+    public function __construct()
+    {
+        $this->persons = new ArrayCollection();
+    }
 
 
     /**
